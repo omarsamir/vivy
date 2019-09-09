@@ -9,7 +9,6 @@ class PlacemarkStorage {
   func storeName(for location: CLLocation) {
     CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
       guard let name = placemarks?.first?.name else {
-        print(placemarks?.first?.name!)
         return
       }
       UserDefaults.standard.set(name, forKey: "myAmazingLocation")
@@ -25,16 +24,20 @@ class PlacemarkTests: XCTestCase {
   override func setUp() {
     super.setUp()
     placemarkTest = PlacemarkStorage()
+    testStoreName()
   }
   
   
   func testStoreName() {
     placemarkTest.storeName(for: CLLocation(latitude: 30.206268, longitude: 31.104092))
-    XCTAssertEqual(
+    XCTAssertNotNil(UserDefaults.standard.value(forKey: "myAmazingLocation"))
   }
-//  placemarkTest.
-//   XCTAssertEqual(sut.scoreRound, 95, "Score computed from  guess is wrong")
-}
+  
+  
+  }
+
+
+
 
 //:
 //: ------

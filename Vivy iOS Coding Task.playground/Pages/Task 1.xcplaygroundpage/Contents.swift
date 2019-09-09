@@ -58,9 +58,9 @@ do {
   let data = jsonString.data(using: .utf8)!
   let personObject = try decoder.decode(PersonInfo.self, from: data)
   print (personObject)
-  print(personObject.person?.age)
-  print(personObject.person?.car)
-  print(personObject.person?.name)
+  print(personObject.person?.age ?? "")
+  print(personObject.person?.car ?? "")
+  print(personObject.person?.name ?? "")
 } catch {
   print(error)
 }
