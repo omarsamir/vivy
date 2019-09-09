@@ -44,7 +44,15 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 // Your solution here:
 
-
+third { thirdNum in
+  first(completion: { firstNum in
+    second(completion: { secondNum in
+      fourth(completion: { fourthNum in
+        let sum = firstNum + secondNum + thirdNum + fourthNum
+      })
+    })
+  })
+}
 
 //:
 //: ------
