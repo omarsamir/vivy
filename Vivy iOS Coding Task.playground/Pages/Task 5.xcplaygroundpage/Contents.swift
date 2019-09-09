@@ -44,6 +44,7 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 // Your solution here:
 
+func sumAllNumbers(){
 third { thirdNum in
   first(completion: { firstNum in
     second(completion: { secondNum in
@@ -53,6 +54,13 @@ third { thirdNum in
     })
   })
 }
+}
+
+
+DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(randomTime)) {
+  sumAllNumbers()
+}
+
 
 //:
 //: ------
