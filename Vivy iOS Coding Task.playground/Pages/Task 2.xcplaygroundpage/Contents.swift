@@ -3,6 +3,7 @@
 //:
 //: ------
 //:
+import Foundation
 struct VaccinationShot {
   let diseaseName: String
   let yearLastTaken: Int
@@ -20,8 +21,15 @@ let vaccinationShots = [
 
 // Your solution here:
 
+func filterVaccinationShots() -> [VaccinationShot] {
+  
+  let currentYear = Calendar.current.component(.year, from: Date())
+  let filteredBooks = vaccinationShots.filter({$0.yearLastTaken >= (currentYear - 10) })
+  let sortedBooks = filteredBooks.sorted(by: {$0.yearLastTaken > $1.yearLastTaken})
+  return sortedBooks
+}
 
-
+filterVaccinationShots()
 //:
 //: ------
 //:
