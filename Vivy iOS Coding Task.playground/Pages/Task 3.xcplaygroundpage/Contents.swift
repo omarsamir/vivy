@@ -15,6 +15,7 @@ var distanceText = ""
 //: ------
 //:
 import PlaygroundSupport
+distanceText = String(distanceToNextDoctor)
 PlaygroundPage.current.liveView = RoadSignView(distanceText: distanceText)
 //:
 //: ------
